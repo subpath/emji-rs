@@ -1,0 +1,51 @@
+[package]
+name = "emji"
+version = "0.1.0"
+edition = "2021"
+authors = ["Emji Contributors"]
+description = "On-device emoji semantic lookup CLI powered by vector search"
+license = "Apache-2.0"
+
+[[bin]]
+name = "emji"
+path = "src/main.rs"
+
+[dependencies]
+# CLI
+clap = { version = "4.5", features = ["derive"] }
+inquire = "0.7"
+colored = "2.1"
+indicatif = "0.17"
+
+# ML/ONNX - Using tract (pure Rust ONNX runtime)
+tract-onnx = "0.21"
+tokenizers = "0.20"
+ndarray = "0.16"
+
+# Database
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# HTTP
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+dirs = "5.0"
+cli-clipboard = "0.4"
+
+# Parallelism
+rayon = "1.10"
+
+[dev-dependencies]
+tempfile = "3.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
