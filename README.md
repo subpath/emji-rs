@@ -32,10 +32,6 @@ curl -L https://github.com/subpath/emji-rs/releases/latest/download/emji-macos-x
 sudo mv emji /usr/local/bin/
 ```
 
-**Windows**
-
-Download `emji-windows-x86_64.zip` from releases, extract, and add to PATH.
-
 ### From source
 
 ```bash
